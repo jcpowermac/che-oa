@@ -14,7 +14,7 @@ FROM registry.fedoraproject.org/fedora:29
 EXPOSE 22 4403 8080 8000 9876 22
 
 RUN dnf -y update && \
-    dnf -y install $(<packages) \
+    dnf -y install $(<packages) && \
     dnf clean all
 
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
