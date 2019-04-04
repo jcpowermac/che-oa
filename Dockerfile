@@ -13,6 +13,8 @@ FROM registry.fedoraproject.org/fedora:29
 
 EXPOSE 22 4403 8080 8000 9876 22
 
+COPY packages /
+
 RUN dnf -y update && \
     dnf -y install $(<packages) && \
     dnf clean all
