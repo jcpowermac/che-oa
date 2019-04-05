@@ -49,6 +49,8 @@ RUN for f in "/home/user" "/etc/passwd" "/etc/group" "/projects"; do\
         > /home/user/group.template && \
         sudo sed -ri 's/StrictModes yes/StrictModes no/g' /etc/ssh/sshd_config
 
+RUN timeout 30 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true
+
 COPY ["entrypoint.sh","/home/user/entrypoint.sh"]
 RUN sudo mkdir /var/run/sshd && \
     sudo  ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' && \
