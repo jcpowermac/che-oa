@@ -34,4 +34,6 @@ is_current_user_sudoer() {
     sudo -n true > /dev/null 2>&1
 }
 
+
+eval $(ssh-agent -s)
 exec "$@"
