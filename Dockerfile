@@ -35,7 +35,7 @@ RUN sudo mkdir /var/run/sshd && \
     sudo chgrp -R 0 ~ && \
     sudo chmod -R g+rwX ~
 
-COPY . ${HOME}/oa-testing
+RUN git clone https://github.com/mtnbikenc/oa-testing ${HOME}/oa-testing
 
 ENTRYPOINT ["/home/user/entrypoint.sh"]
 CMD tail -f /dev/null
