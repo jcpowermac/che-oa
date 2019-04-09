@@ -6,5 +6,4 @@ if ! whoami &> /dev/null; then
   fi
 fi
 
-eval $(ssh-agent -s)
 exec "$@"
