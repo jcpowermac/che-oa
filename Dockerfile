@@ -27,7 +27,7 @@ RUN sudo chgrp -R 0 ${HOME} /projects /etc/passwd /etc/group && \
 
 RUN timeout 30 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true
 
-COPY HOME/. ${HOME} 
+COPY HOME ${HOME}
 RUN sudo mkdir /var/run/sshd && \
     sudo  ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' && \
     sudo  ssh-keygen -t rsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
@@ -37,5 +37,5 @@ RUN sudo mkdir /var/run/sshd && \
 
 RUN git clone https://github.com/mtnbikenc/oa-testing ${HOME}/oa-testing
 
-ENTRYPOINT ["${HOME}/entrypoint.sh"]
+ENTRYPOINT "${HOME}/entrypoint.sh"
 CMD tail -f /dev/null
