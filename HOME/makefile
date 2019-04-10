@@ -35,5 +35,5 @@ occp:
 	oc login --token ${TOKEN} ${CLUSTER}
 	$(eval PODNAME=$(shell sh -c "oc get pod -l  che.original_name=ws -o jsonpath='{.items[0].metadata.name}'"))
 	oc cp ${HOME}/.ssh/id_rsa ${PODNAME}:${PROJECTS} -c dev 
-	oc cp ${HOME}/.ssh/id_rsa ${PODNAME}:${PROJECTS} -c dev 
+	oc cp ${HOME}/.ssh/id_rsa.pub ${PODNAME}:${PROJECTS} -c dev 
 	oc cp ${LOCAL_GITKEY} ${PODNAME}:${PROJECTS} -c dev 
