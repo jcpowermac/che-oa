@@ -37,5 +37,5 @@ RUN sudo mkdir /var/run/sshd && \
 
 RUN git clone https://github.com/mtnbikenc/oa-testing ${HOME}/oa-testing
 
-ENTRYPOINT "${HOME}/entrypoint.sh"
+ENTRYPOINT ["/home/user/entrypoint.sh"]
 CMD tail -f /dev/null
