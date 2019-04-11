@@ -24,8 +24,8 @@ WORKDIR /projects
 
 RUN sudo chgrp -R 0 ${HOME} /projects /etc/passwd /etc/group && \
     sudo chmod -R g+rwX ${HOME} /projects /etc/passwd /etc/group && \
-	cat /etc/passwd | \
-	sed s#user:x.*#user:x:\${USER_ID}:\${GROUP_ID}::\${HOME}:/bin/bash#g > /home/user/passwd.template && \
+    cat /etc/passwd | \
+    sed s#user:x.*#user:x:\${USER_ID}:\${GROUP_ID}::\${HOME}:/bin/bash#g > /home/user/passwd.template && \
     cat /etc/group | \
     sed s#root:x:0:#root:x:0:0,\${USER_ID}:#g > /home/user/group.template
 

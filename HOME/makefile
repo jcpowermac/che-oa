@@ -30,10 +30,11 @@ all:
 token:
 	@echo ${CHE_OSO_CLUSTER}
 	oc whoami -t
-occp:
+login:
 	$(eval TOKEN=$(shell cat ${TOKEN_FILE}))
 	oc login --token ${TOKEN} ${CLUSTER}
+occp: login
 	$(eval PODNAME=$(shell sh -c "oc get pod -l  che.original_name=ws -o jsonpath='{.items[0].metadata.name}'"))
-	oc cp ${HOME}/.ssh/id_rsa ${PODNAME}:${PROJECTS} -c dev 
-	oc cp ${HOME}/.ssh/id_rsa.pub ${PODNAME}:${PROJECTS} -c dev 
-	oc cp ${LOCAL_GITKEY} ${PODNAME}:${PROJECTS} -c dev 
+	oc cp ${HOME}/.ssh/id_rsa ${PODNAME}:${PROJECTS} -c dev
+	oc cp ${HOME}/.ssh/id_rsa.pub ${PODNAME}:${PROJECTS} -c dev
+	oc cp ${LOCAL_GITKEY} ${PODNAME}:${PROJECTS} -c dev

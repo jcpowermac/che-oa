@@ -50,6 +50,7 @@ python2-pip
 python2-pyOpenSSL
 python2-pyyaml
 python2-virtualenv 
+python2-setuptools
 python3-boto
 python3-botocore
 python3-boto3
@@ -61,6 +62,7 @@ python3-netaddr
 python3-pip
 python3-pyOpenSSL
 python3-pyyaml
+python3-setuptools
 rsync
 sudo
 tcpdump
