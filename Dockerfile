@@ -8,7 +8,7 @@ RUN mkdir -p /home/user && chgrp -R 0 /home && chmod -R g=u /etc/passwd /etc/gro
 COPY install-editor-tooling.sh /tmp
 RUN /tmp/install-editor-tooling.sh && rm -f /tmp/install-editor-tooling.sh
 
-USER 10001
+USER 1001
 ENV HOME=/home/user
 WORKDIR /projects
 
