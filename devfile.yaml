@@ -1,0 +1,23 @@
+metadata:
+  name: openshift-ansible
+projects:
+  - name: oa-testing
+    source:
+      location: 'https://github.com/mtnbikenc/oa-testing.git'
+      type: git
+      branch: master
+components:
+  - mountSources: true
+    memoryLimit: 5Gi
+    type: dockerimage
+    alias: ansible-cli
+    image: 'quay.io/jcallen/che-oa:latest'
+  - id: eclipse/che-theia/next
+    memoryLimit: 1Gi
+    type: cheEditor
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
+  - id: vscodevim/vim/latest
+    type: chePlugin
+apiVersion: 1.0.0
+
