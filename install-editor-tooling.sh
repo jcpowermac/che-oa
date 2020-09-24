@@ -10,7 +10,7 @@
 
 set -e
 
-TOOLING=(vim tmux zsh curl zip wget bash-completion)
+TOOLING=(expect jq zsh bind-utils git vim tmux zsh curl zip wget bash-completion)
 
 if command -v dnf 2> /dev/null; then
   dnf install -y "${TOOLING[@]}"
